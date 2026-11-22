@@ -1,0 +1,7 @@
+AEGISVISION Full Integrated Project
+Version: 1.5.0
+Includes automatic video analysis, SORT tracking, annotated MP4 export, intelligent event detection, bilingual SOC, and RTSP/RTSPS live camera AI processing.
+Database migration: organizations.0008_live_camera_intelligence (additive; depends on 0007_soc_operations).
+Configuration: environment-backed through the project-root .env file; no real secrets are committed.
+Dependencies: SciPy is included for SORT's Hungarian assignment implementation.
+Runtime databases, private media, node_modules, build output, caches, and local Git metadata are excluded from the source package.

@@ -1,0 +1,5 @@
+AEGISVISION Intelligent Event Detection
+Version: 1.0.0
+Features: normalized polygon zone intrusion, virtual line crossing, loitering, per-video and per-camera rules, persistent security events, event review workflow, automatic evaluation after SORT.
+Database: migration 0006_analyticsrule_securityevent.
+Integrated package configuration: Django settings now read secrets and environment-specific options from the project-root .env file; see README.md.

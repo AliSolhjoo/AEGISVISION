@@ -1,0 +1,6 @@
+AEGISVISION Object Tracking
+Version: 1.0.0
+Python: 3.12+
+Django app label: organizations
+No new Python dependencies
+settings.py modifications: none

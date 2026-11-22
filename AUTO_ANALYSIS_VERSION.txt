@@ -1,0 +1,4 @@
+AEGISVISION Integrated Automatic Video Analysis
+Version: 1.3.0
+Workflow: upload -> frame extraction -> Faster R-CNN detection -> SORT tracking -> configured security event evaluation -> MP4 rendering -> in-site playback and Event Center.
+Database: additive migration 0006_analyticsrule_securityevent. settings.py unchanged.

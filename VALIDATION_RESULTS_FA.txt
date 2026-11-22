@@ -1,0 +1,34 @@
+AEGISVISION 1.5.0 — Source Package Preparation Notes
+
+Package preparation:
+- Replaced the hard-coded Django development SECRET_KEY with environment-backed configuration.
+- Added DEBUG, ALLOWED_HOSTS, CORS, CSRF, email, SQLite/PostgreSQL and HTTPS-related environment settings.
+- Added root .env.example with placeholders only.
+- Added SciPy to requirements.txt because SORT imports scipy.optimize.linear_sum_assignment.
+- Expanded .gitignore to exclude private environment files, databases, uploads, generated media, exports, caches, dependencies, build output and local backups.
+- Excluded .git metadata, runtime database/media, frontend/node_modules, frontend/dist, caches, historical patch payload and installer scripts from this source ZIP.
+
+Source-level checks in this packaging session:
+- The uploaded ZIP was extracted and its project structure, backend settings, dependency manifest, camera credential encryption helper, frontend package manifest, route files, migrations and release documentation were inspected.
+- The frontend production build could not be verified in this container: the existing node_modules/.bin/vite launcher returned "Permission denied".
+- Django checks and integration tests could not be run because Django is not installed in this container.
+- Python source syntax can be checked with compileall after cleanup; this does not replace Django checks or tests.
+- RTSP connectivity, FFmpeg decoding, model download, CUDA, and live inference performance require the target machine and a reachable camera.
+
+Recommended verification after installing dependencies:
+
+Backend (from backend/):
+  python manage.py check
+  python manage.py showmigrations
+  python manage.py migrate
+  python manage.py test
+
+Frontend (from frontend/):
+  npm ci
+  npm run typecheck
+  npm run build
+
+Important:
+- This package does not contain a production database or the original media directory.
+- Camera credentials are encrypted using a key derived from DJANGO_SECRET_KEY. Keep that key stable for any database that stores encrypted camera credentials.
+- Never commit .env, a real database, camera passwords, private video, or generated user media.

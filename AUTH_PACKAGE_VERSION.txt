@@ -1,0 +1,5 @@
+AEGISVISION Authentication Upgrade
+Package version: 1.0.0
+Target user model: apps.accounts.User
+Target Python: 3.12+
+Dependency: djangorestframework-simplejwt==5.5.1

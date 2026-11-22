@@ -1,0 +1,60 @@
+# Python runtime / virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Django local data and generated files
+*.sqlite3
+*.sqlite3-journal
+*.db
+backend/media/
+backend/logs/
+backend/staticfiles/
+backend/tracking_exports/
+staticfiles/
+media/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Frontend dependencies and generated output
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.tsbuildinfo
+
+# Local backups and temporary files
+*.aegis_backup_*
+*.bak
+*.tmp
+*.log
+*.swp
+*~
+
+# Model weights / generated ML artifacts (add intentionally only when licensed)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local Git metadata should never be nested inside a ZIP upload
+.git/

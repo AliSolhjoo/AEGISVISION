@@ -1,0 +1,3 @@
+AEGISVISION Security Operations Center
+Version: 1.4.0
+Includes operational dashboard, incident queue, severity, assignment, investigation notes, audit history, CSV export, role-based UI permissions, and Persian/English localization.

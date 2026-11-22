@@ -1,0 +1,4 @@
+AEGISVISION React Frontend
+Version: 1.5.0
+Includes bilingual FA/EN UI, RTL/LTR, automatic video analysis, SORT, event analytics, SOC operations, camera inventory and RTSP live camera intelligence.
+Live preview: refreshed JPEG snapshots; not WebRTC.

@@ -1,0 +1,6 @@
+AEGISVISION Live Camera Intelligence
+Version: 1.5.0
+Sources: RTSP / RTSPS
+Features: Encrypted camera credentials, RTSP connection test, background worker manager, live object detection, SORT tracking, live zone/line/loitering events, snapshot preview, bilingual UI.
+Migration: organizations.0008_live_camera_intelligence
+Limitations: snapshot preview (not WebRTC), no continuous RTSP recording, no PTZ, no cross-camera ReID, browser camera not supported by server worker.

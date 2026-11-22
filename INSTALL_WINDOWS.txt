@@ -1,0 +1,41 @@
+AEGISVISION 1.5.0 — Windows Development Setup
+
+1. Install Python 3.12+, Node.js LTS and Git.
+2. Open CMD in the AEGISVISION project root.
+3. Create and activate a virtual environment:
+   python -m venv .venv
+   .venv\Scripts\activate
+4. Install backend dependencies:
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+5. Create the root environment file:
+   copy .env.example .env
+   Generate two independent values with:
+   python -c "import secrets; print(secrets.token_urlsafe(64))"
+   Put one in DJANGO_SECRET_KEY and the other in JWT_SIGNING_KEY.
+   Never upload .env.
+6. Install frontend dependencies:
+   cd frontend
+   npm.cmd ci
+   cd ..
+7. Apply migrations and create an admin account if needed:
+   cd backend
+   python manage.py migrate
+   python manage.py check
+   python manage.py createsuperuser
+   cd ..
+8. Run Start_AEGISVISION.bat from the project root.
+9. Open http://localhost:5173.
+
+The launcher starts Django, the live-camera worker manager and Vite.
+Keep those processes running while using the application. Worker log:
+backend\logs\live_camera_worker.log
+
+Notes:
+- The root .env configures Django. Only .env.example is safe to publish.
+- SQLite is the default local database. PostgreSQL can be selected through DB_ENGINE and DB_* variables.
+- Server-side live AI currently supports RTSP/RTSPS, not browser-camera capture.
+- The live preview uses refreshed JPEG snapshots, not WebRTC/HLS.
+- Continuous RTSP recording, PTZ and cross-camera re-identification are not included.
+- Start with one reachable 720p camera at 1–2 AI FPS and benchmark your hardware.
+- Do not use production cameras or footage without authorization.
