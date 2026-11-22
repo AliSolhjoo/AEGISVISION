@@ -2,13 +2,13 @@
 
 **AI-Assisted Video Analytics & Security Operations Platform**
 
-[![CI](https://github.com/AliSolhjoo/AEGISVISION/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AliSolhjoo/AEGISVISION/actions/workflows/ci.yml) · [![License: Not specified](https://img.shields.io/badge/license-not%20specified-lightgrey.svg)](#license)
+[![CI](https://github.com/AliSolhjoo/AEGISVISION/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AliSolhjoo/AEGISVISION/actions/workflows/ci.yml)
 
 AEGISVISION is a Django and React application for organization-aware camera management, recorded-video analysis, object detection and tracking, rule-based security-event detection, live RTSP/RTSPS camera intelligence, and Security Operations Center (SOC) workflows. The user interface supports Persian and English with RTL/LTR layouts.
 
 > **Current project package:** `1.5.0` — Live Camera Intelligence  
 > **Repository:** [AliSolhjoo/AEGISVISION](https://github.com/AliSolhjoo/AEGISVISION)  
-> **Persian guide:** [`README_FA.md`](README_FA.md) · **GitHub upload guide (FA):** [`GITHUB_UPLOAD_FA.md`](GITHUB_UPLOAD_FA.md) · **Security policy:** [`SECURITY.md`](SECURITY.md)
+> **Contributing:** [`CONTRIBUTING.md`](CONTRIBUTING.md) · **Persian guide:** [`README_FA.md`](README_FA.md) · **GitHub upload guide (FA):** [`GITHUB_UPLOAD_FA.md`](GITHUB_UPLOAD_FA.md) · **Security policy:** [`SECURITY.md`](SECURITY.md)
 
 ---
 
@@ -27,6 +27,7 @@ AEGISVISION is a Django and React application for organization-aware camera mana
 - [Frontend pages](#frontend-pages)
 - [API overview](#api-overview)
 - [Database and migrations](#database-and-migrations)
+- [Continuous integration](#continuous-integration)
 - [Testing and validation](#testing-and-validation)
 - [Limitations and operational notes](#limitations-and-operational-notes)
 - [Security](#security)
