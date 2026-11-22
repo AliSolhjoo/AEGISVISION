@@ -1,42 +1,72 @@
-# راهنمای ارسال AEGISVISION به GitHub
+# راهنمای نگهداری و ارسال AEGISVISION به GitHub
 
-این بسته برای آپلود سورس آماده شده است؛ فایل‌های دیتابیس، ویدئوها، فریم‌ها، کلیدها، `node_modules` و فایل‌های موقت در آن قرار ندارند.
+مخزن رسمی پروژه:
+https://github.com/AliSolhjoo/AEGISVISION
 
-## روش پیشنهادی: ارسال با Git
+## ارسال تغییرات از نسخه محلی موجود
 
-1. فایل ZIP را Extract کن.
-2. در CMD یا PowerShell وارد پوشه اصلی استخراج‌شده شو؛ همان پوشه‌ای که `README.md` و `requirements.txt` در آن قرار دارند.
-3. چون مخزن `AliSolhjoo/AEGISVISION` در زمان آماده‌سازی این بسته خالی بود، می‌توانی اولین commit را مستقیماً بسازی:
+اگر قبلاً مخزن را روی سیستم Clone کرده‌ای و Remote آن به مخزن بالا متصل است، از ریشه پروژه اجرا کن:
 
-```bash
-git init
-git branch -M main
-git remote add origin https://github.com/AliSolhjoo/AEGISVISION.git
+```powershell
+git status
+git remote -v
+git pull --rebase origin main
 git add .
-git status --short
+git status
 git diff --cached --stat
-git commit -m "Initial commit: AEGISVISION 1.5.0"
-git push -u origin main
+git commit -m "Describe your change"
+git push origin main
 ```
 
-اگر `git remote add origin` خطا داد که remote از قبل وجود دارد، ابتدا `git remote -v` را اجرا کن و remote درست را نگه دار؛ آن را دوباره اضافه نکن.
+اگر `git status` اعلام کرد working tree clean است، تغییری برای Commit وجود ندارد. اگر هنگام Pull تعارض ایجاد شد، ابتدا آن را حل کن و سپس ادامه بده. از `git push --force` برای رفع خطاهای معمول Push استفاده نکن.
 
-## اگر مخزن GitHub دیگر خالی نبود
+## راه‌اندازی روی یک رایانه جدید
 
-در این حالت از پوشه استخراج‌شده مستقیماً push نکن. ابتدا مخزن را clone کن، سورس بسته را داخل پوشه clone‌شده کپی کن، سپس `git status` را بررسی و commit/push عادی انجام بده. از `--force` استفاده نکن مگر آگاهانه تصمیم گرفته باشی تاریخچه قبلی را جایگزین کنی.
+```powershell
+git clone https://github.com/AliSolhjoo/AEGISVISION.git
+cd AEGISVISION
+```
+
+سپس تغییراتت را اعمال و با دستورات بخش قبل Commit و Push کن.
+
+## اگر سورس را از ZIP دریافت کرده‌ای
+
+ZIP را Extract کن. برای به‌روزرسانی مخزن موجود، ابتدا آن را Clone کن و فایل‌های سورس استخراج‌شده را داخل پوشه Cloneشده کپی کن؛ فایل‌ها را روی پوشه `.git` کپی یا جایگزین نکن. سپس `git status` را بررسی و تغییرات را Commit و Push کن.
 
 ## آپلود از طریق مرورگر GitHub
 
-صفحه **Add file → Upload files** فایل ZIP را خودکار Extract نمی‌کند. ابتدا ZIP را روی کامپیوتر Extract کن و فایل‌ها و پوشه‌های داخل ریشه پروژه را بارگذاری کن. برای یک پروژه چندپوشه‌ای، روش Git معمولاً مطمئن‌تر و ساده‌تر است.
+صفحه **Add file → Upload files** فایل ZIP را خودکار Extract نمی‌کند. ابتدا ZIP را Extract کن و فایل‌ها و پوشه‌های داخل ریشه پروژه را بارگذاری کن. برای پروژه چندپوشه‌ای، Git روش مطمئن‌تری است.
 
-## بررسی امنیت قبل از Push
+## بررسی امنیت قبل از Commit
 
-قبل از commit مطمئن شو این موارد را اضافه نکرده‌ای:
+قبل از اجرای `git add .` مطمئن شو موارد زیر منتشر نمی‌شوند:
 
-- فایل `.env` واقعی؛ فقط `.env.example` باید منتشر شود.
-- `backend/db.sqlite3` یا هر دیتابیس شخصی.
+- فایل `.env` واقعی؛ فقط فایل‌های نمونه مانند `.env.example` مجازند.
+- دیتابیس محلی مانند `backend/db.sqlite3`.
 - `backend/media/`، ویدئوها، فریم‌ها و تصاویر خصوصی.
-- رمز دوربین، آدرس استریم حاوی نام‌کاربری/رمز، SMTP password یا API token.
-- پوشه `frontend/node_modules/` یا فایل‌های cache و backup.
+- رمز دوربین، URL استریم حاوی اطلاعات ورود، SMTP password یا API token.
+- `frontend/node_modules/`، cache، log و فایل‌های پشتیبان.
+- وزن‌های مدل یا فایل‌های حجیم که مجوز انتشار آن‌ها را نداری.
 
-در پایان `git status --short` و `git diff --cached --stat` را بررسی کن و سپس commit/push بزن.
+در پایان خروجی `git status --short` و `git diff --cached --stat` را بازبینی کن. هرگز برای حل مشکل Push بدون بررسی از `--force` استفاده نکن.
+
+## تست‌های پیشنهادی قبل از Pull Request
+
+Backend:
+
+```powershell
+cd backend
+python manage.py check
+python manage.py test
+```
+
+Frontend:
+
+```powershell
+cd frontend
+npm ci
+npm run typecheck
+npm run build
+```
+
+جزئیات مشارکت در پروژه در [CONTRIBUTING.md](CONTRIBUTING.md) و الزامات امنیتی در [SECURITY.md](SECURITY.md) آمده است.
