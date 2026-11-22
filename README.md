@@ -2,6 +2,8 @@
 
 **AI-Assisted Video Analytics & Security Operations Platform**
 
+[![CI](https://github.com/AliSolhjoo/AEGISVISION/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AliSolhjoo/AEGISVISION/actions/workflows/ci.yml) · [![License: Not specified](https://img.shields.io/badge/license-not%20specified-lightgrey.svg)](#license)
+
 AEGISVISION is a Django and React application for organization-aware camera management, recorded-video analysis, object detection and tracking, rule-based security-event detection, live RTSP/RTSPS camera intelligence, and Security Operations Center (SOC) workflows. The user interface supports Persian and English with RTL/LTR layouts.
 
 > **Current project package:** `1.5.0` — Live Camera Intelligence  
@@ -558,6 +560,15 @@ python manage.py migrate
 ```
 
 The repository contains migration files through `organizations.0008_live_camera_intelligence`.
+
+## Continuous integration
+
+GitHub Actions runs on pushes and pull requests targeting `main`:
+
+- Frontend dependency installation, TypeScript type-check, and Vite production build.
+- Python source syntax compilation for the Django backend.
+
+These checks do not replace Django runtime tests, end-to-end browser tests, RTSP camera validation, CUDA/GPU checks, or production load testing. See [CONTRIBUTING.md](CONTRIBUTING.md) for local validation commands.
 
 ## Testing and validation
 
